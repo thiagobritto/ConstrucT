@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romaneio</title>
+
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section>
+        <h2>Romaneio de madeira</h2>
+        <p>
+            * Utilize a calculadora com numeros inteiros;
+            <em>EX C = 2,50m -> 25, L = 0,32cm -> 32</em>
+        </p>
+        <fieldset>
+            <legend>Calculadora</legend>
+            <form id="add">
+                <input 
+                    name="C" 
+                    type="text" 
+                    size="10" 
+                    placeholder="C" 
+                    autocomplete="off" 
+                    maxlength="2"
+                    oninput="inputSetNumberInt(this)"
+                    autofocus
+                >
+                <input 
+                    name="L" 
+                    type="text" 
+                    size="10" 
+                    placeholder="L" 
+                    autocomplete="off"
+                    maxlength="2"
+                    oninput="inputSetNumberInt(this)"
+                >
+                <select name="A">
+                    <option value="0.075">7,5</option>
+                    <option value="0.035">3,5</option>
+                    <option value="0.025">2,5</option>
+                </select>
+                <input 
+                    name="V" 
+                    type="text" 
+                    size="10" 
+                    placeholder="R$" 
+                    autocomplete="off" 
+                    oninput="inputSetNumberInt(this)"
+                >
+                <button>Adicionar</button>
+            </form>
+            <div class="actions">
+                <a href="./index.html">limpar</a> |
+                <a href="javascript:window.print()">imprimir</a>
+            </div>
+        </fieldset>
+
+        <table id="table1" border="1">
+            <tr>
+                <th>Comprimento</th>
+                <th>Largura</th>
+                <th>Altura</th>
+                <th>M³</th>
+                <th>V/M³</th>
+                <th>R$</th>
+            </tr>
+        </table>
+
+        <table id="table2" border="1">
+            <tr>
+                <td>M³</td>
+                <td id="sm3">0</td>
+            </tr>
+            <tr>
+                <td>R$</td>
+                <td id="sbrs">0</td>
+            </tr>
+        </table>
+        <script src="../../lib/functions.js"></script>
+        <script src="./script.js"></script>
+    </section>
+</body>
+
+</html>

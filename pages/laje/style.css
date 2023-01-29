@@ -1,0 +1,16 @@
+.sclgcircle h2,
+.sclgcircle form,
+.sclgsquare h2,
+.sclgsquare form {
+  margin-bottom: 15px;
+}
+
+.sclgsquare form label {
+  display: block;
+  padding-top: 8px;
+  color: red;
+}
+
+.tda1 {
+  text-align: center;
+}

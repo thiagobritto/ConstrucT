@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etiquetas</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section class="machine">
+    <form name="fmetiqueta">
+      <input type="text" name="codigo" size="10" placeholder="Codigo" oninput="inputSetNumberInt(this)">
+      <input type="text" name="descricao" size="30" placeholder="Descrição">
+      <input type="text" name="desconto" size="10" placeholder="Desconto %" oninput="inputSetNumber(this)">
+      <input type="text" name="valor" size="10" placeholder="R$" oninput="inputSetNumber(this)">
+      <button>Adicionar</button>
+      <a href="javascript:window.print()" class="btn">Imprimir</a>
+    </form>
+  </section>
+  <div id="rpetiqueta"></div>
+
+  <script src="../../lib/functions.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

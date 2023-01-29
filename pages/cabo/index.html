@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seçâo de cabos</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section>
+    <h2>Cabos</h2>
+    <form name="fmcabo">
+      <input 
+        type="text" 
+        name="distancia" 
+        placeholder="Distancia" 
+        size="10" 
+        autocomplete="off"
+        oninput="inputSetNumber(this)"
+        >
+      <input 
+        type="text" 
+        name="potencia" 
+        placeholder="Potencia" 
+        size="10" 
+        autocomplete="off"
+        oninput="inputSetNumber(this)"
+      >
+      <select name="tipo">
+        <option value="1">Watts</option>
+        <option value="750">CV/HP</option>
+      </select>
+      <select name="voltz">
+        <option value="12">12v</option>
+        <option value="24">24v</option>
+        <option value="48">48v</option>
+        <option value="110">110v</option>
+        <option value="220">220v</option>
+      </select>
+      <button>Calcular</button>
+    </form>
+    <div id="rpcaco"></div>
+  </section>
+
+  <script src="../../lib/functions.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

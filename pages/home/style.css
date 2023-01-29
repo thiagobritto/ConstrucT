@@ -1,0 +1,9 @@
+table {
+  text-align: center;
+}
+
+.th-info{
+  max-width: 300px;
+  text-align: left;
+  font-weight: 400;
+}

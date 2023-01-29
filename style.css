@@ -1,12 +1,32 @@
+/* reset */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+    --header-color: #000100;
+    --footer-color: #0F330F;
+    --title-color: #174D17;
+    --btn-color: #009900;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section{
+    padding: 15px;
+}
+
+/* deshboard */
 
 .ds-header {
     height: 60px;
-    background-color: #000100;
+    background-color: var(--header-color);
     color: #fff;
     padding: 15px;
 }
@@ -33,10 +53,69 @@
 
 .ds-section {
     height: calc(100vh - 80px);
+    padding: 0;
+}
+
+.ds-iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
 }
 
 .ds-footer {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
     height: 20px;
-    background-color: #333;
+    background-color: var(--footer-color);
     color: #fff;
+}
+
+@media print {
+    .ds-header, 
+    .ds-footer {
+        display: none;
+    }
+}
+
+/* tables */
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+tr, th, td {
+    border: 1px solid #000;
+    padding: 4px 8px;
+}
+
+/* forms */
+
+.btn, input, button, select{
+    padding: 4px 8px;
+    font-size: 16px;
+    border: 1px solid var(--footer-color);
+    border-radius: 4px;
+    outline-color: var(--title-color);
+}
+
+.btn, button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--btn-color);
+    color: #fff;
+    transition: all 0.4s;
+}
+
+button:hover, .btn:hover {
+    filter: brightness(200%);
+    cursor: pointer;
+}
+
+/* Tipografia */
+
+h2{
+    color: var(--title-color);
+    margin-bottom: 15px;
 }

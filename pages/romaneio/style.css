@@ -1,0 +1,26 @@
+h2 {
+    margin-bottom: 0;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+fieldset {  
+    padding: 15px; 
+}
+
+fieldset .actions {
+    margin-top: 15px;
+}
+
+table {
+    margin: 15px 0;
+    text-align: center;
+}
+
+@media print {
+    fieldset, p {
+        display: none;
+    }
+}

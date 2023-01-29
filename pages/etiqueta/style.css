@@ -1,0 +1,26 @@
+#rpetiqueta {
+  padding: 0 15px;
+}
+
+#rpetiqueta div {
+  width: 33.3333%;
+  border: 1px solid #000;
+  float: left;
+  padding: 10px;
+}
+
+.destaque{
+  margin: 10px 0;
+  font-size: 22px;
+  color: red;
+}
+
+@media print {
+  .machine {
+    display: none;
+  }
+
+  #rpetiqueta {
+    padding: 0;
+  }
+}
