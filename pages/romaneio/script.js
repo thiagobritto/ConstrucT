@@ -28,18 +28,22 @@ function calc(c, l, a, v) {
 function render(c, l, a, m3, v, brs) {
     let tr = document.createElement('tr')
     tr.innerHTML = `
-        <td>${c}</td>
-        <td>${l}</td>
-        <td>${a}</td>
-        <td>${m3.toFixed(3)}</td>
-        <td>${v}</td>
-        <td>${brs.toFixed(2)}</td>
+        <td>${rpl(c)}</td>
+        <td>${rpl(l)}</td>
+        <td>${rpl(a)}</td>
+        <td>${rpl(m3.toFixed(3))}</td>
+        <td>${rpl(v)}</td>
+        <td>${rpl(brs.toFixed(2))}</td>
     `
     table1.appendChild(tr)
-    sm3.innerHTML = summ3.toFixed(4)
-    sbrs.innerHTML = sumbrs.toFixed(2)
+    sm3.innerHTML = rpl(summ3.toFixed(4))
+    sbrs.innerHTML = rpl(sumbrs.toFixed(2))
 
     add.C.value = ''
     add.L.value = ''
     add.C.focus()
+}
+
+function rpl(n) {
+    return n.toString().replace('.', ',')
 }

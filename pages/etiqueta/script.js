@@ -24,6 +24,6 @@ function writeEtiqueta(codigo, descricao, desconto, valor) {
     <p>Cod.: ${codigo}</p>
     <p>${descricao}</p>
     <p class="destaque">${moedaFormat((valor - (valor * desconto / 100).toFixed(2)))} à vista</p>
-    <p>${moedaFormat(valor)} no Cartão de crédito</p>
+    <p>ou ${moedaFormat(valor)}</p>
   `)
 }
