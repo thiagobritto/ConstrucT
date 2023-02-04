@@ -1,4 +1,19 @@
-#rpcaco{
+#rpcaco {
   max-width: 300px;
   margin-top: 15px;
+}
+
+.fmcabo input,
+.fmcabo select,
+.fmcabo button {
+  width: 100%;
+}
+
+@media (min-width: 620px) {
+
+  .fmcabo input,
+  .fmcabo select,
+  .fmcabo button {
+    width: inherit;
+  }
 }

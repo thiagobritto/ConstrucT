@@ -14,3 +14,40 @@
 .tda1 {
   text-align: center;
 }
+
+.sclgsquare form input[type=text],
+.sclgsquare form select,
+.sclgsquare form button,
+.sclgcircle form input[type=text],
+.sclgcircle form select,
+.sclgcircle form button {
+  width: 100%;
+}
+
+.sclgsquare form label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sclgsquare form input[type=checkbox] {
+  margin: 0 10px;
+}
+
+@media (min-width: 620px) {
+  .sclgsquare form input[type=text],
+  .sclgsquare form select,
+  .sclgsquare form button,
+  .sclgcircle form input[type=text],
+  .sclgcircle form select,
+  .sclgcircle form button {
+    width: inherit;
+  }
+  .sclgsquare form label {
+    display: block;
+  }
+
+  .sclgsquare form input[type=checkbox] {
+    margin-left: 0;
+  }
+}
