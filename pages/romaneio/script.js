@@ -1,47 +1,64 @@
 var summ3 = 0
 var sumbrs = 0
+var list = []
 
 add.onsubmit = e => {
-    if( add.C.value == 0 || 
+    if (add.C.value == 0 ||
         add.L.value == 0 ||
-        add.V.value == 0 ){
-            add.C.focus()
-            return false
+        add.V.value == 0) {
+        add.C.focus()
+        return false
     }
-    calc(
-        add.C.value,
-        add.L.value,
-        add.A.value,
-        add.V.value
-    )
+
+    let res = resove(add.C.value, add.L.value, add.A.value, add.V.value)
+    addItem(...res, add.A.value, add.V.value);
+
+    render()
     e.preventDefault()
 }
 
-function calc(c, l, a, v) {
-    let m3 = (c / 10) * (l / 100) * a
-    let brs = m3 * v
-    summ3 += m3
-    sumbrs += brs
-    render(c / 10, l / 100, a, m3, v, brs)
+function resove(c, l, a, v) {
+    c = c / 10, l = l / 100
+    return [
+        c,
+        l,
+        (c * l * a).toFixed(4),
+        (c * l * a * v).toFixed(2)
+    ]
 }
 
-function render(c, l, a, m3, v, brs) {
-    let tr = document.createElement('tr')
-    tr.innerHTML = `
-        <td>${rpl(c)}</td>
-        <td>${rpl(l)}</td>
-        <td>${rpl(a)}</td>
-        <td>${rpl(m3.toFixed(3))}</td>
-        <td>${rpl(v)}</td>
-        <td>${rpl(brs.toFixed(2))}</td>
-    `
-    table1.appendChild(tr)
+function addItem(c, l, m3, brs, a, v) {
+    list.unshift({ c, l, a, m3, v, brs })
+    summ3 += Number(m3)
+    sumbrs += Number(brs)
+}
+
+function render() {
+    table1.innerHTML = ''
+
+    list.forEach(i => {
+        let tr = document.createElement('tr')
+        tr.innerHTML = write(i)
+        table1.appendChild(tr)
+    })
+
     sm3.innerHTML = rpl(summ3.toFixed(4))
-    sbrs.innerHTML = rpl(sumbrs.toFixed(2))
+    sbrs.innerHTML = rpl(sumbrs)
 
     add.C.value = ''
     add.L.value = ''
     add.C.focus()
+}
+
+function write(i) {
+    return (`
+        <td>${rpl(i.c)}</td>
+        <td>${rpl(i.l)}</td>
+        <td>${rpl(i.a)}</td>
+        <td>${rpl(i.m3)}</td>
+        <td>${rpl(i.v)}</td>
+        <td>${rpl(i.brs)}</td>
+    `)
 }
 
 function rpl(n) {

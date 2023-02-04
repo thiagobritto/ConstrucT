@@ -60,7 +60,7 @@ table {
     }
 }
 
-#table1 {
+.table1 {
     margin-top: 0px;
 }
 
@@ -74,7 +74,7 @@ table {
         border: none;
     }
 
-    #table1 {
+    .table1 {
         margin-top: 15px;
     }
 
