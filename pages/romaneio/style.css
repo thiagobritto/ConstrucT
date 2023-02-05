@@ -64,6 +64,14 @@ table {
     margin-top: 0px;
 }
 
+#table1 tr {
+    cursor: pointer;
+}
+
+#table1 tr:hover {
+    background-color: lightblue;
+}
+
 @media print {
     .rm-form, p {
         display: none;

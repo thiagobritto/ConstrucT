@@ -1,5 +1,3 @@
-var summ3 = 0
-var sumbrs = 0
 var list = []
 
 add.onsubmit = e => {
@@ -29,21 +27,29 @@ function resove(c, l, a, v) {
 
 function addItem(c, l, m3, brs, a, v) {
     list.unshift({ c, l, a, m3, v, brs })
-    summ3 += Number(m3)
-    sumbrs += Number(brs)
+}
+
+function removeItem({target}) {
+    let id = target.parentNode.getAttribute('data-id')
+    list = list.filter( (i, k) => {
+        if (id != k) return i
+    })
+    render()
 }
 
 function render() {
     table1.innerHTML = ''
 
-    list.forEach(i => {
+    list.forEach( (i,k) => {
         let tr = document.createElement('tr')
+        tr.setAttribute('data-id', k)
+        tr.ondblclick = removeItem
         tr.innerHTML = write(i)
         table1.appendChild(tr)
     })
 
-    sm3.innerHTML = rpl(summ3.toFixed(4))
-    sbrs.innerHTML = rpl(sumbrs)
+    sm3.innerHTML = rpl(soma('m3', list).toFixed(4))
+    sbrs.innerHTML = rpl(soma('brs', list).toFixed(2))
 
     add.C.value = ''
     add.L.value = ''
@@ -63,4 +69,12 @@ function write(i) {
 
 function rpl(n) {
     return n.toString().replace('.', ',')
+}
+
+function soma(key, arr) {
+    let total = 0
+    arr.forEach( item => {
+        total += Number(item[key])
+    })
+    return total
 }
