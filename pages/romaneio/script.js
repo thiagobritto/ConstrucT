@@ -29,9 +29,9 @@ function addItem(c, l, m3, brs, a, v) {
     list.unshift({ c, l, a, m3, v, brs })
 }
 
-function removeItem({target}) {
+function removeItem({ target }) {
     let id = target.parentNode.getAttribute('data-id')
-    list = list.filter( (i, k) => {
+    list = list.filter((i, k) => {
         if (id != k) return i
     })
     render()
@@ -40,7 +40,7 @@ function removeItem({target}) {
 function render() {
     table1.innerHTML = ''
 
-    list.forEach( (i,k) => {
+    list.forEach((i, k) => {
         let tr = document.createElement('tr')
         tr.setAttribute('data-id', k)
         tr.ondblclick = removeItem
@@ -73,8 +73,12 @@ function rpl(n) {
 
 function soma(key, arr) {
     let total = 0
-    arr.forEach( item => {
+    arr.forEach(item => {
         total += Number(item[key])
     })
     return total
+}
+
+function settings() {
+    console.log('settings');
 }

@@ -14,15 +14,91 @@
 <body>
   <section class="machine">
     <form name="fmetiqueta">
-      <input type="text" name="codigo" size="10" placeholder="Codigo" oninput="inputSetNumberInt(this)">
-      <input type="text" name="descricao" size="30" placeholder="Descrição">
-      <input type="text" name="desconto" size="10" placeholder="Desconto %" oninput="inputSetNumber(this)">
-      <input type="text" name="valor" size="10" placeholder="R$" oninput="inputSetNumber(this)">
+      <input 
+        type="text" 
+        name="codigo" 
+        size="10" 
+        placeholder="Codigo"
+        inputmode="numeric" 
+        autocomplete="off"
+        oninput="inputSetNumberInt(this)"
+      >
+      <input 
+        type="text" 
+        name="descricao" 
+        size="30"
+        placeholder="Descrição"
+        autocomplete="off"
+      >
+      <input 
+        type="text" 
+        name="valor" 
+        size="10" 
+        placeholder="R$"
+        inputmode="numeric"
+        autocomplete="off" 
+        oninput="inputSetNumber(this)"
+      >
       <button>Adicionar</button>
       <a href="javascript:window.print()" class="btn">Imprimir</a>
     </form>
   </section>
   <div id="rpetiqueta"></div>
+
+  <div class="et-modal-overlay hide"></div>
+  <div class="et-modal hide">
+    <h3>Configurações</h3>
+    <form id="fmsetting">
+      <div>
+        <input 
+          type="text" 
+          name="codigo" 
+          placeholder="Mensagem"
+          autocomplete="off"
+        > 
+        <span>
+          Código
+        </span>
+      </div>
+      <div>
+        <span>
+          Preço desconto
+        </span>
+        <input 
+          type="text" 
+          name="precods" 
+          placeholder="Mensagem"
+          autocomplete="off"
+        >
+      </div>
+      <div>
+        <span>
+          Preço total
+        </span>
+        <input 
+          type="text" 
+          name="preco" 
+          placeholder="Mensagem" 
+          autocomplete="off"
+        >
+      </div>
+      <div>
+        <input 
+          type="text" 
+          name="desconto" 
+          placeholder="Desconto %"
+          autocomplete="off"
+          inputmode="numeric"
+          maxlength="2"
+          oninput="inputSetNumber(this)"
+        >
+      </div>
+      <div>
+        <a href="javascript:settings()" class="btn">Cancelar</a>
+        <button>Guardar</button>
+      </div>
+    </form>
+  </div>
 
   <script src="../../lib/functions.js"></script>
   <script src="./script.js"></script>

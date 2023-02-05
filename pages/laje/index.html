@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,63 +10,46 @@
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="./style.css">
 </head>
-<body>
- 
-  <section class="sclgcircle">
-  <h2>Laje redonda</h2>
-  <form name="fmlgcircle">
-    <input 
-      type="text" 
-      name="diametro" 
-      placeholder="Diametro" 
-      size="10" 
-      autofocus
-      autocomplete="off"
-      oninput="inputSetNumber(this)"
-    >
-    <select name="espacamento">
-      <option value="0.4">Blocos 19x30x06</option>
-      <option value="0.5">Isopor 100x40x08</option>
-    </select>
-    <button>Calcular</button>
-  </form>
-  <table id="tblgcircle"></table>
- </section>
 
- <section class="sclgsquare">
-  <h2>Laje comum</h2>
-  <form name="fmlgsquare">
-    <input 
-      type="text" 
-      name="L" 
-      placeholder="L" 
-      size="10" 
-      autocomplete="off" 
-      oninput="inputSetNumber(this)"
-    >
-    <input 
-      type="text" 
-      name="C" 
-      placeholder="C" 
-      size="10" 
-      autocomplete="off" 
-      oninput="inputSetNumber(this)"
-    >
-    <select name="espacamento">
-      <option value="0.4">Blocos 19x30x06</option>
-      <option value="0.5">Isopor 100x40x08</option>
-    </select>
-    <button>Calcular</button>
-    <br>
-    <label> 
-      <input type="checkbox" name="inverter">
-      inverter sentido das nervuras
-    </label>
-  </form>
-  <table id="tblgsquare"></table>
- </section>
+<body>
+
+  <section class="sclgcircle">
+    <h2>Laje redonda</h2>
+    <form name="fmlgcircle">
+      <input type="text" name="diametro" placeholder="Diametro" inputmode="numeric" size="10" autofocus
+        autocomplete="off" oninput="inputSetNumber(this)">
+      <select name="espacamento">
+        <option value="0.4">Blocos 19x30x06</option>
+        <option value="0.5">Isopor 100x40x08</option>
+      </select>
+      <button>Calcular</button>
+    </form>
+    <table id="tblgcircle"></table>
+  </section>
+
+  <section class="sclgsquare">
+    <h2>Laje comum</h2>
+    <form name="fmlgsquare">
+      <input type="text" name="L" placeholder="L" inputmode="numeric" size="10" autocomplete="off"
+        oninput="inputSetNumber(this)">
+      <input type="text" name="C" placeholder="C" inputmode="numeric" size="10" autocomplete="off"
+        oninput="inputSetNumber(this)">
+      <select name="espacamento">
+        <option value="0.4">Blocos 19x30x06</option>
+        <option value="0.5">Isopor 100x40x08</option>
+      </select>
+      <button>Calcular</button>
+      <br>
+      <label>
+        <input type="checkbox" name="inverter">
+        inverter sentido das nervuras
+      </label>
+    </form>
+    <table id="tblgsquare"></table>
+  </section>
 
   <script src="../../lib/functions.js"></script>
   <script src="./script.js"></script>
 </body>
+
 </html>
