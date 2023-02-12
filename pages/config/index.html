@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section class="confg-etiqueta">
+    <h2>Configurações das etiquetas</h2>
+    <form id="fmConfgEtiqueta">
+      <div>
+        <input type="text" name="before_code" placeholder="Cod.:" autocomplete="off">
+        <p>0000</p>
+      </div>
+      <div>
+        <p>Descrição</p>
+      </div>
+      <div>
+        <p class="p1">R$ 00,00</p>
+        <input type="text" name="after_p1" placeholder="15% OFF" autocomplete="off">
+      </div>
+      <div>
+        <p>R$ 00,00</p>
+        <input type="text" name="after_p2" placeholder="3x sem juros ..." autocomplete="off">
+      </div>
+      <hr class="separator">
+      <div>
+        <input 
+          type="text" 
+          name="off" 
+          placeholder="Desconto %" 
+          maxlength="5"
+          inputmode="numeric" 
+          autocomplete="off"
+          oninput="inputSetNumber(this)"
+        >
+        <button>Salvar</button>
+      </div>
+    </form>
+  </section>
+
+  <script src="../../lib/functions.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

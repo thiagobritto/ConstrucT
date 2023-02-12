@@ -1,67 +1,44 @@
 fmetiqueta.onsubmit = e => {
-  let codigo = fmetiqueta.codigo.value
-  let descricao = fmetiqueta.descricao.value
-  let valor = Number(fmetiqueta.valor.value.replaceAll(',', '.'))
+  const dataFM = getFmEtiqueta()
+  if (dataFM.describe == '') return false
+  if (dataFM.price == '') return false
 
-  renderEtiqueta(writeEtiqueta(codigo, descricao, valor))
+  dataFM.priceOff = 0
 
+  try {
+    const dataDB = getDBL('etq-config')
+    dataFM.priceOff = (dataFM.price * (dataDB.off || 0) / 100).toFixed(2)
+    const htmlET = writeHTMLEtiqueta(dataFM, dataDB)
+    renderEtiqueta(htmlET)
+  } catch (error) {
+    const htmlET = writeHTMLEtiqueta(dataFM)
+    renderEtiqueta(htmlET)
+  }
   e.preventDefault()
+}
+
+function getFmEtiqueta() {
+  return ({
+    code: fmetiqueta.codigo.value,
+    describe: fmetiqueta.descricao.value,
+    price: fmetiqueta.preco.value.replace(',', '.')
+  })
+}
+
+function writeHTMLEtiqueta(dataFM, dataDB = {}) {
+  return (`
+    <p>${dataDB.beforeCode || ''} ${dataFM.code || ''}</p>
+    <p>${dataFM.describe}</p>
+    <p class="destaque">
+      ${moedaFormat(dataFM.price - dataFM.priceOff)} 
+      ${dataDB.afterP1 || ''}
+    </p>
+    <p>${moedaFormat(dataFM.price)} ${dataDB.afterP2 || ''}</p>
+  `)
 }
 
 function renderEtiqueta(content) {
-  let div = document.createElement('div')
+  const div = document.createElement('div')
   div.innerHTML = content
   rpetiqueta.appendChild(div)
-}
-
-function writeEtiqueta(code, descricao, valor) {
-  try {
-    const { codigo, precods, preco, desconto } = getDBL('db-etq')
-    const desc = valor - (valor * desconto / 100)
-    return (`
-      <p>${codigo || ''} ${code}</p>
-      <p>${descricao}</p>
-      <p class="destaque">${moedaFormat(desc.toFixed(2))} ${precods || ''}</p>
-      <p>${moedaFormat(valor.toFixed(2))} ${preco || ''}</p>
-    `)
-  } catch (error) {
-    return (`
-      <p>${code}</p>
-      <p>${descricao}</p>
-      <p class="destaque">${moedaFormat(valor.toFixed(2))}</p>
-      <p>${moedaFormat(valor.toFixed(2))}</p>
-    `)
-  }
-}
-
-function settings() {
-  document.querySelector('.et-modal-overlay').classList.toggle('hide')
-  document.querySelector('.et-modal').classList.toggle('hide')
-  innerFormSetting(getDBL("db-etq"))
-}
-
-function innerFormSetting(data) {
-  try {
-    const { codigo, precods, preco, desconto } = data
-    fmsetting.codigo.value = codigo || ''
-    fmsetting.precods.value = precods || ''
-    fmsetting.preco.value = preco || ''
-    fmsetting.desconto.value = desconto || ''
-  } catch (error) {
-    return false
-    console.log(error);
-  }
-}
-
-document.querySelector('.et-modal-overlay').onclick = settings
-
-fmsetting.onsubmit = e => {
-  setDBL("db-etq", {
-    codigo: fmsetting.codigo.value,
-    precods: fmsetting.precods.value,
-    preco: fmsetting.preco.value,
-    desconto: fmsetting.desconto.value,
-  })
-  settings()
-  e.preventDefault()
 }

@@ -32,7 +32,7 @@
       >
       <input 
         type="text" 
-        name="valor" 
+        name="preco" 
         size="10" 
         placeholder="R$"
         inputmode="numeric"
@@ -44,61 +44,6 @@
     </form>
   </section>
   <div id="rpetiqueta"></div>
-
-  <div class="et-modal-overlay hide"></div>
-  <div class="et-modal hide">
-    <h3>Configurações</h3>
-    <form id="fmsetting">
-      <div>
-        <input 
-          type="text" 
-          name="codigo" 
-          placeholder="Antes ..."
-          autocomplete="off"
-        > 
-        <span>
-          Código
-        </span>
-      </div>
-      <div>
-        <span>
-          Preço desconto
-        </span>
-        <input 
-          type="text" 
-          name="precods" 
-          placeholder="... Depois"
-          autocomplete="off"
-        >
-      </div>
-      <div>
-        <span>
-          Preço total
-        </span>
-        <input 
-          type="text" 
-          name="preco" 
-          placeholder="... Depois" 
-          autocomplete="off"
-        >
-      </div>
-      <div>
-        <input 
-          type="text" 
-          name="desconto" 
-          placeholder="Desconto %"
-          autocomplete="off"
-          inputmode="numeric"
-          maxlength="2"
-          oninput="inputSetNumber(this)"
-        >
-      </div>
-      <div>
-        <a href="javascript:settings()" class="btn">Cancelar</a>
-        <button>Guardar</button>
-      </div>
-    </form>
-  </div>
 
   <script src="../../lib/functions.js"></script>
   <script src="./script.js"></script>
