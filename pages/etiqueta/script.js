@@ -41,4 +41,12 @@ function renderEtiqueta(content) {
   const div = document.createElement('div')
   div.innerHTML = content
   rpetiqueta.appendChild(div)
+  cleanFmEtiqueta()
+}
+
+function cleanFmEtiqueta() {
+  fmetiqueta.codigo.value = ''
+  fmetiqueta.descricao.value = ''
+  fmetiqueta.preco.value = ''
+  fmetiqueta.codigo.focus()
 }
