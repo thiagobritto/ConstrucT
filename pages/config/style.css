@@ -1,5 +1,5 @@
 #fmConfgEtiqueta {
-  width: 33.3333%;
+  width: 100%;
   border: 1px solid #000;
   padding: 10px;
 }
@@ -32,4 +32,16 @@
 
 .separator {
   margin: 10px -10px;
+}
+
+@media (min-width: 620px) {
+  #fmConfgEtiqueta {
+    width: 50%;
+  }
+}
+
+@media (min-width: 820px) {
+  #fmConfgEtiqueta {
+    width: 33.3333%;
+  }
 }
